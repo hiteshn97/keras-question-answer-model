@@ -1,0 +1,46 @@
+Summary OF Teaching Machines to Read and Comprehend:
+
+Abstract:
+The aim of this research is to peovide large scale supervised reading comprehension data. This helps us develop "attention based" "deep neural networks" that learn to read real document and answer complex questions.. with minimal prior knowledge of language structure.
+
+Introduction:
+Currently, lack of large scale training sets,and difficulty in structuring statistical models flexible enough to learn to exploit document structure.
+Summary and similar sentences, with their associated documents can be readily converted to context-query-answer triples using simple entity detection and anonymisation algorithms. In short , Cloze_test methodology is used
+https://en.wikipedia.org/wiki/Cloze_test
+Now we test the eddicacy of this new form of corpus by using it with already verified Deep Learning models for reading comprehension.
+About models:  These models incorporate "Attentions Mechanisms into Recurrent Neural Network Architectures". This helps the document to "focus" on the part which it feels will give the answer. Also, it allows us to visualize its inference process. Then we show ki Neural Networks perform better than traditional "Frame Semantic Analysis" provided by a state-of-the-art natural language processing Pipeline
+
+Supervised Training Data for Reading Comprehension:
+Given the context('c') of Document, and the query('q'), we wish to find the answer('a'). P(a|c,q)
+For a "focused" evaluation we wish to be able to exclude the additional world information using co-occurence statistics to help us better rate the model. The model undertands relationship between entities and their context.
+
+The data is from Daily Mail, CNN, Cloze_test methodology is used
+https://en.wikipedia.org/wiki/Cloze_test to develop plethora of queries and their answers given the document.
+
+Aim of the paper is to provide a corpus and not world knowledge removal, or co-occurence statistics.
+From WIki:
+Co-reference -> In linguistics, co-reference, occurs when two or more expressions in a text refer to the same person or thing; they have the same referent
+3 Steps:
+1 ) Make a coreference name for "data point"
+2 ) Replace the data point with the coreference name like BBC -> "ent381"
+3 ) Randomly permute the entity marker whenever a data point is loaded,to make the model more general.
+
+DOUBT!!#$#$#$#$ 1) what is data point?
+2) ow were the query as shown in paper created. Surely we didn't type in millions of sentences.
+
+So,
+Answering the query is possible only when we have the context provided. And for production scale, we need more information than just the context, such as clues through language and co-occurence statistics.
+
+MODELS::
+
+Maximum Frequency: Simply predict the entity appearing the most times
+Exclusive Frequency: A build up on above one, excludes entities in the query.
+
+Frame Semantic Matching: Entity predicate triples, "who did what to whom"..Flaw: not capable of being generalised through a language model beyond exploiting one during the parsing phase.
+
+Word Distance Benchmark(Survey): 
+	Align the placeholder of Cloze form query with each possible entity in the context document.
+	Calculate the distance measured between the query and the context around the aligned entity.
+	Sum the distances of every word in Q to it's nearest aligned word in Doc.
+Alignment is defined by matching the workds either directly or as aligned by the coreference system.
+This system works well when query asked is similar to some statement in the context document.
